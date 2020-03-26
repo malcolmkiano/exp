@@ -9,7 +9,7 @@ exp() {
   defaultname="express-boilerplate"
 
   # replace this value with the value in "description" in your boilerplate's package.json
-  defaultdesc="A starting point for Express apps."
+  defaultdesc="A starting point for Express apps"
 
   # You can also run this without changing the values, and it'll start up a project based off my boilerplate
   # at https://github.com/malcolmkiano/express-boilerplate

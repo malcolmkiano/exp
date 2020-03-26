@@ -2,10 +2,12 @@
 A simple bash script to make starting up a new Express app a breeze!
 
 ## Installation
-Download `.bash_profile` and `.bashrc` and place them in your home directory.<br>
+Copy the code from `.bash_profile` and `.bashrc` and add them to the same files in your home directory. Create these files if they do not exist.<br>
 For example:
-- Windows: *`'C:/Users/John/'`*
-- Mac/Linux: *`'/Users/John'`*
+- Windows: `'C:/Users/John/.bashrc'` and `'C:/Users/John/.bash_profile'`
+- Mac/Linux: `'/Users/John/.bashrc'` and `'/Users/John/.bash_profile'`
+
+**NOTE:** You could also just download these files and replace your local ones, however **this WILL overwrite your current settings**. Only go with this if you know what you're doing.
 
 Restart any terminals you have open.
 
@@ -38,5 +40,5 @@ url="https://github.com/malcolmkiano/express-boilerplate.git"
 defaultname="express-boilerplate"
 
 # replace this value with the value in "description" in your boilerplate's package.json
-defaultdesc="A starting point for Express apps."
+defaultdesc="A starting point for Express apps"
 ```
