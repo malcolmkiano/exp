@@ -1,13 +1,22 @@
 # exp
-A simple bash script to make starting up a new Express app a breeze!
+A simple bash/zsh script to make starting up a new Express app a breeze!
+
+## Prerequisites
+You need to have [node/npm](https://nodejs.org/en/) and [git](https://www.atlassian.com/git/tutorials/install-git) installed on your local machine and available in your PATH.
 
 ## Installation
-Copy the code from `.bash_profile` and `.bashrc` and add them to the same files in your home directory. Create these files if they do not exist.<br>
+### Bash (Windows/Linux)
+Copy the code from `bash/.bash_profile` and `bash/.bashrc` and add them to the same files in your home directory. Create these files if they do not exist.<br>
 For example:
 - Windows: `'C:/Users/John/.bashrc'` and `'C:/Users/John/.bash_profile'`
-- Mac/Linux: `'/Users/John/.bashrc'` and `'/Users/John/.bash_profile'`
+- Linux: `'~/.bashrc'` and `'~/.bash_profile'`
 
 **NOTE:** You could also just download these files and replace your local ones, however **this WILL overwrite your current settings**. Only go with this if you know what you're doing.
+
+### Zsh (Mac)
+Copy the code from `zsh/.zprofile` and `zsh/.zshrc` and add them to the same files in your home directory. Create these files if they do not exist.<br>
+For example:
+- Mac: `'~/.zshrc'` and `'~/.zprofile'`
 
 Restart any terminals you have open.
 

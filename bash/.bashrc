@@ -21,7 +21,6 @@ exp() {
     echo -e "\e[32mSyntax:\e[0m  exp \e[36mproject-name \e[0m['Project description']"
     echo "options:"
     echo "h     Print this help."
-    echo
   }
 
   while getopts ":h" option; do
@@ -33,8 +32,8 @@ exp() {
         echo "Usage: exp [-h]"
         return 1;;
     esac
+    shift $((OPTIND -1));
   done
-  shift $((OPTIND -1))
 
   # check if name is empty
   if [ -z "$1" ]
@@ -49,6 +48,19 @@ exp() {
 
     # get the values
     projectname="$1"
+
+    # check validity of project name
+    if [[ "$projectname" =~ [A-Za-z0-9_-]+$ ]]
+    then
+
+      :
+
+    else
+
+      echo -e "Project name '\e[31m$projectname\e[0m' includes illegal characters"
+      return 1
+
+    fi
 
     if [ -n "$2" ]
     then
