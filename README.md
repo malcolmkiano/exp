@@ -6,15 +6,17 @@ You need to have [node/npm](https://nodejs.org/en/) and [git](https://www.atlass
 
 ## Installation
 1. Clone this repository onto your local machine and `cd` into it.
-2. Navigate into the directory matching your terminal environment
-  - `cd bash` for Windows/Linux
-  - `cd zsh` for Mac OS
-3. Run the `install` file in the terminal.
+2. Run the `install` file in the terminal and specify your shell environment.
+  - Windows/Linux users - `bash`:
 ```shell
-./install
+./install bash
+```
+  - Mac OS users - `zsh`:
+```shell
+./install zsh
 ```
 
-You're good to go!
+You're done, and you only ever have to do this once!
 
 ## Usage
 To use this, `cd` into your projects folder (or wherever really), and run the following command:

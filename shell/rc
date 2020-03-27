@@ -83,6 +83,7 @@ exp() {
     mv example.env .env
 
     # replace the title and description in package.json
+    sed -i "s/$defaultname/$projectname/g" package-lock.json
     sed -i "s/$defaultname/$projectname/g" package.json
     sed -i "s/$defaultdesc/$description/g" package.json
 
