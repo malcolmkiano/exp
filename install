@@ -26,6 +26,6 @@ sed -i "s/bashrc/$rcname/g" $profile
 # bottom line
 echo "Installation was successful. Your terminal settings have been reloaded."
 echo
-echo -e "\e[32mTo use:\e[0m  exp \e[36mproject-name \e[0m['Project description']"
+echo -e "\e[32mTo use:\e[0m  exp [-k] \e[36mproject-name \e[0m['Project description']"
 
 exec "$sh"

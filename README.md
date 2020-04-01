@@ -2,7 +2,8 @@
 A simple bash/zsh script to make starting up a new Express app a breeze!
 
 ## Prerequisites
-You need to have [node/npm](https://nodejs.org/en/) and [git](https://www.atlassian.com/git/tutorials/install-git) installed on your local machine and available in your PATH.
+You need to have [node/npm](https://nodejs.org/en/) and [git](https://www.atlassian.com/git/tutorials/install-git) installed on your local machine and available in your PATH.<br>
+For usage with Knex: you also need to have [PostgreSQL](https://www.postgresql.org) set up on your machine.
 
 ## Installation
 1. Clone this repository onto your local machine and `cd` into it.
@@ -23,6 +24,13 @@ You could optionally include a description for your project:
 ```bash
 exp your-project-name "Your project description"
 ```
+<br>
+
+This will scaffold an Express app for you. If you would like a template with [Knex](http://knexjs.org/), use the `-k` flag:
+```bash
+exp -k your-project-name
+```
+<br>
 
 For help using exp, use the `-h` option:
 ```bash
@@ -35,14 +43,17 @@ You can configure this to clone your own Express boilerplate repo!<br>
 All you need to do is edit the variables below _(located in your `.bashrc` or `.zshrc` file)_
 
 ```bash
-# replace this value with the url to your express boilerplate
+# replace this value with the url to your express/express-knex boilerplate
 url="https://github.com/malcolmkiano/express-boilerplate.git"
+url_knex="https://github.com/malcolmkiano/express-knex-boilerplate.git"
 
 # replace this value with the value in "name" in your boilerplate's package.json
 defaultname="express-boilerplate"
+defaultname_knex="express-knex-boilerplate"
 
 # replace this value with the value in "description" in your boilerplate's package.json
 defaultdesc="A starting point for Express apps"
+defaultdesc_knex="A starting point for Express apps with Knex and a PostgreSQL Database"
 ```
 
-If you don't change these values, it'll start you off with [my Express boilerplate](https://github.com/malcolmkiano/express-boilerplate), which is good too. 😅
+If you don't change these values, it'll start you off with my [Express boilerplate](https://github.com/malcolmkiano/express-boilerplate) or [Express-Knex boilerplate](https://github.com/malcolmkiano/express-knex-boilerplate), both of which are really good starting points.
