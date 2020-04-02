@@ -7,9 +7,9 @@ For usage with Knex: you also need to have [PostgreSQL](https://www.postgresql.o
 
 ## Installation
 1. Clone this repository onto your local machine and `cd` into it.
-2. Run the `install` file in the terminal - (the `./` is required).
+2. Run the `install.sh` file in the terminal - (the `./` is required).
 ```shell
-./install
+./install.sh
 ```
 
 You're done, and you only ever have to do this once!
@@ -26,7 +26,7 @@ exp your-project-name "Your project description"
 ```
 <br>
 
-This will scaffold an Express app for you. If you would like a template with [Knex](http://knexjs.org/), use the `-k` flag:
+This will scaffold an Express app for you. If you would like a template with [Knex](http://knexjs.org/), use the `-k` option:
 ```bash
 exp -k your-project-name
 ```
@@ -43,15 +43,15 @@ You can configure this to clone your own Express boilerplate repo!<br>
 All you need to do is edit the variables below _(located in your `.bashrc` or `.zshrc` file)_
 
 ```bash
-# replace this value with the url to your express/express-knex boilerplate
-url="https://github.com/malcolmkiano/express-boilerplate.git"
-url_knex="https://github.com/malcolmkiano/express-knex-boilerplate.git"
+# replace value with the url to your express/express-knex boilerplate
+defaulturl="https://github.com/malcolmkiano/express-boilerplate.git"
+defaulturl_knex="https://github.com/malcolmkiano/express-knex-boilerplate.git"
 
-# replace this value with the value in "name" in your boilerplate's package.json
+# replace value with the value in "name" in your boilerplate's package.json
 defaultname="express-boilerplate"
 defaultname_knex="express-knex-boilerplate"
 
-# replace this value with the value in "description" in your boilerplate's package.json
+# replace value with the value in "description" in your boilerplate's package.json
 defaultdesc="A starting point for Express apps"
 defaultdesc_knex="A starting point for Express apps with Knex and a PostgreSQL Database"
 ```

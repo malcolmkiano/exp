@@ -17,8 +17,8 @@ elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
 fi
 
 # copy files to home directory
-cp "shell/profile" $profile
-cp "shell/rc" $rc
+cp "shell/profile.sh" $profile
+cp "shell/rc.sh" $rc
 
 # replace filenames in 'profile' file
 sed -i "s/bashrc/$rcname/g" $profile
