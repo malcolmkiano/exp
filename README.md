@@ -7,7 +7,7 @@ For usage with Knex: you also need to have [PostgreSQL](https://www.postgresql.o
 
 ## Installation
 1. Clone this repository onto your local machine and `cd` into it.
-2. Run the `install.sh` file in the terminal - (the `./` is required).
+2. Run the `./install.sh` file in the terminal - (the `./` is required).
 ```shell
 ./install.sh
 ```
@@ -38,8 +38,10 @@ exp -h
 ```
 
 
-## Configuration
-You can configure this to clone your own Express boilerplate repo!<br>
+## Configuration _(not recommended)_
+You can configure this to clone your a different repository and set it up for you.<br>
+It is highly likely it won't entirely be compatible, so please make sure you know what you're doing.
+
 All you need to do is edit the variables below _(located in your `.bashrc` or `.zshrc` file)_
 
 ```bash

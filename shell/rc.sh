@@ -21,7 +21,7 @@ exp() {
   # Don't change anything beyond this line ======================================
   url="$defaulturl"
   name="$defaultname"
-  desc="$defaultsec"
+  desc="$defaultdesc"
 
   # Display Help for -h option
   Help(){
