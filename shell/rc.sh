@@ -127,7 +127,7 @@ exp() {
 
     # get it going
     echo
-    success "Starting up a new project using the ${BOLD}$name${RESET} repo"
+    success "Starting up a new project using the ${CYAN}$name${RESET} repo"
     echo
     sleep 2s
 
@@ -137,7 +137,7 @@ exp() {
     cd "$projectname" || exit
 
     # reinitialize repo
-    echo "Reinitialize git repo"
+    success "Reinitialize git repo"
     rm -rf .git && git init
 
     # install the packages
@@ -166,7 +166,7 @@ exp() {
 
     # let's rock & roll, baby
     echo
-    success "Let's get it! #Express"
+    success "Let's get it! ${CYAN}#Express${RESET}"
     echo
 
     return 0
