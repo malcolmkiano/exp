@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # exp v1.0
 # developed by Malcolm Kiano (https://malcolmkiano.com)
 
