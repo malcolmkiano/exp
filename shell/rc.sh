@@ -1,7 +1,48 @@
+#!/bin/sh
+
 # exp v1.0
 # developed by Malcolm Kiano (https://malcolmkiano.com)
-exp() {
 
+setup_color() {
+	# Only use colors if connected to a terminal
+	if [ -t 1 ]; then
+		RED=$(printf '\033[31m')
+		GREEN=$(printf '\033[32m')
+		YELLOW=$(printf '\033[33m')
+		BLUE=$(printf '\033[34m')
+		CYAN=$(printf '\033[36m')
+		BOLD=$(printf '\033[1m')
+		RESET=$(printf '\033[m')
+	else
+		RED=""
+		GREEN=""
+		YELLOW=""
+		BLUE=""
+		CYAN=""
+		BOLD=""
+		RESET=""
+	fi
+}
+
+error() {
+	echo ${RED}"$@"${RESET} >&2
+}
+
+success() {
+	echo ${GREEN}"$@"${RESET} >&2
+}
+
+bold() {
+  echo ${BOLD}"$@"${RESET} >&2
+}
+
+cyan() {
+  echo ${CYAN}"$@"${RESET} >&2
+}
+
+
+exp() {
+  setup_color
   # replace this value with the url to your express/express-knex boilerplate
   defaulturl="https://github.com/malcolmkiano/express-boilerplate.git"
   defaulturl_knex="https://github.com/malcolmkiano/express-knex-boilerplate.git"
@@ -25,10 +66,11 @@ exp() {
 
   # Display Help for -h option
   Help(){
-    echo "Creates a clone of the '$defaultname' repo at $url"
+    echo "Creates an Express JS app using '$defaultname' repo at $url"
     echo
-    echo -e "\e[32mSyntax:\e[0m  exp [-k] \e[36mproject-name \e[0m['Project description']"
-    echo "options:"
+    success "${BOLD}Syntax:${RESET} ${BOLD}project name${RESET} ${CYAN}'project description'${RESET} -options"
+    success "Example ${CYAN}exp express-app 'an app with an awesome description'${RESET}"
+    echo "Options:"
     echo "k   Scaffold an Express app with Knex" 
     echo "h   Print this help."
   }
@@ -54,8 +96,8 @@ exp() {
   then
 
     # can't run without project name
-    echo -e "\e[31mMust provide project name"
-    echo -e "\e[32mSyntax:\e[0m  exp [-k] \e[36mproject-name \e[0m['Project description']"
+    error "Must provide project name"
+    success "${BOLD}Syntax:${RESET} ${BOLD}project name${RESET} ${CYAN}'project description'${RESET} -options"
     return 1
   
   else
@@ -71,7 +113,7 @@ exp() {
 
     else
 
-      echo -e "Project name '\e[31m$projectname\e[0m' includes illegal characters"
+      error "Project name '$projectname' includes illegal characters"
       return 1
 
     fi
@@ -85,15 +127,17 @@ exp() {
 
     # get it going
     echo
-    echo -e "Starting up a new project using the \e[32m$name\e[0m repo"
+    success "Starting up a new project using the ${CYAN}$name${RESET} repo"
     echo
     sleep 2s
 
     # clone the repository & cd into it
-    git clone "$url" "$projectname"
-    cd "$projectname"
+
+    git clone --depth=1 "$url" "$projectname"
+    cd "$projectname" || exit
 
     # reinitialize repo
+    success "Reinitialize git repo"
     rm -rf .git && git init
 
     # install the packages
@@ -109,7 +153,7 @@ exp() {
 
     # clean up README.md
     echo "# $projectname" > README.md
-    echo $description >> README.md
+    echo "$description" >> README.md
 
     # get out of there!
     cd ..
@@ -117,12 +161,12 @@ exp() {
     # tell them how to start
     echo
     echo "To get started:"
-    echo -e "  \e[36mcd $projectname\e[0m"
-    echo -e "  \e[36mnpm start\e[0m"
+    cyan "  cd $projectname"
+    cyan "  npm start"
 
     # let's rock & roll, baby
     echo
-    echo -e "\e[1mLet's get it!\e[0m \e[32m#Express"
+    success "Let's get it! ${CYAN}#Express${RESET}"
     echo
 
     return 0
@@ -130,3 +174,5 @@ exp() {
   fi
 
 }
+
+exp "$@"
