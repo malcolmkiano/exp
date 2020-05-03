@@ -5,14 +5,30 @@ A simple bash/zsh script to make starting up a new Express app a breeze!
 You need to have [node/npm](https://nodejs.org/en/) and [git](https://www.atlassian.com/git/tutorials/install-git) installed on your local machine and available in your PATH.<br>
 For usage with Knex: you also need to have [PostgreSQL](https://www.postgresql.org) set up on your machine.
 
-## Installation
-1. Clone this repository onto your local machine and `cd` into it.
-2. Run the `./install.sh` file in the terminal - (the `./` is required).
+## Using it once:
+If you just need to use the script without installing it:
+
 ```shell
-./install.sh
+bash -c "$(wget -O - https://github.com/malcolmkiano/exp/blob/master/shell/rc.sh)"
+```
+Curl
+```shell
+sh -c "$(curl -fsSL https://github.com/malcolmkiano/exp/blob/master/shell/rc.sh)"
 ```
 
-You're done, and you only ever have to do this once!
+## Installation
+> To be run in the terminal
+
+Wget
+```shell
+bash -c "$(wget -O - https://raw.githubusercontent.com/malcolmkiano/exp/master/install.sh)"
+```
+Curl
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/malcolmkiano/exp/master/install.sh)"
+```
+
+You're done, open a new terminal and run `exp`!
 
 ## Usage
 To use this, `cd` into your projects folder (or wherever really), and run the following command:
