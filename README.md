@@ -7,7 +7,9 @@ For usage with Knex: you also need to have [PostgreSQL](https://www.postgresql.o
 
 ## Using it once:
 If you just need to use the script without installing it:
+> To be run in the terminal
 
+Wget
 ```shell
 bash -c "$(wget -O - https://raw.githubusercontent.com/newtonkiragu/exp/master/shell/rc.sh)" <project name> <"project description">
 ```
