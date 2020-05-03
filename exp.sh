@@ -2,24 +2,19 @@
 
 # exp v1.0
 # developed by Malcolm Kiano (https://malcolmkiano.com)
+# credit to Newton Karanu (https://newtonkaranu.me/) for refactoring the installation process
 
 setup_color() {
 	# Only use colors if connected to a terminal
 	if [ -t 1 ]; then
 		RED=$(printf '\033[31m')
 		GREEN=$(printf '\033[32m')
-		YELLOW=$(printf '\033[33m')
-		BLUE=$(printf '\033[34m')
 		CYAN=$(printf '\033[36m')
-		BOLD=$(printf '\033[1m')
 		RESET=$(printf '\033[m')
 	else
 		RED=""
 		GREEN=""
-		YELLOW=""
-		BLUE=""
 		CYAN=""
-		BOLD=""
 		RESET=""
 	fi
 }
@@ -30,10 +25,6 @@ error() {
 
 success() {
 	echo ${GREEN}"$@"${RESET} >&2
-}
-
-bold() {
-  echo ${BOLD}"$@"${RESET} >&2
 }
 
 cyan() {
@@ -68,11 +59,11 @@ exp() {
   Help(){
     echo "Creates an Express JS app using '$defaultname' repo at $url"
     echo
-    success "${BOLD}Syntax:${RESET} ${BOLD}project name${RESET} ${CYAN}'project description'${RESET} -options"
-    success "Example ${CYAN}exp express-app 'an app with an awesome description'${RESET}"
+    echo "Syntax: ${CYAN}exp ${GREEN}project-name ${CYAN}'project description'${RESET} [-options]"
+    echo "Example: ${CYAN}exp ${GREEN}hello-world ${CYAN}'my first project'${RESET}"
     echo "Options:"
-    echo "k   Scaffold an Express app with Knex" 
-    echo "h   Print this help."
+    cyan "k   Scaffold an Express app with Knex" 
+    cyan "h   Print this help."
   }
 
   while getopts ":hk" option; do
@@ -85,7 +76,7 @@ exp() {
         name="$defaultname_knex"
         desc="$defaultdesc_knex";;
       \?) # incorrect option
-        echo "Usage: exp [-h|-k]"
+        error "Usage: exp [-h|-k]"
         return 1;;
     esac
     shift $((OPTIND -1));
@@ -94,28 +85,20 @@ exp() {
   # check if name is empty
   if [ -z "$1" ]
   then
-
     # can't run without project name
     error "Must provide project name"
-    success "${BOLD}Syntax:${RESET} ${BOLD}project name${RESET} ${CYAN}'project description'${RESET} -options"
+    echo "Syntax: ${CYAN}exp ${GREEN}project-name${RESET} ${CYAN}'project description'${RESET} [-options]"
     return 1
-  
+
   else
-
-    # get the values
-    projectname="$1"
-
     # check validity of project name
-    if [[ "$projectname" =~ [A-Za-z0-9_-]+$ ]]
+    if [[ "$1" =~ [A-Za-z0-9_-]+$ ]]
     then
-
-      :
-
+      # get the values
+      projectname="$1"
     else
-
       error "Project name '$projectname' includes illegal characters"
       return 1
-
     fi
 
     if [ -n "$2" ]
@@ -127,17 +110,16 @@ exp() {
 
     # get it going
     echo
-    success "Starting up a new project using the ${CYAN}$name${RESET} repo"
-    echo
+    cyan "Starting up a new project using the ${GREEN}$name ${CYAN}repo"
     sleep 2s
 
     # clone the repository & cd into it
-
     git clone --depth=1 "$url" "$projectname"
     cd "$projectname" || exit
+    echo
 
     # reinitialize repo
-    success "Reinitialize git repo"
+    cyan "Reinitializing git repo and installing node packages"
     rm -rf .git && git init
 
     # install the packages
@@ -166,7 +148,7 @@ exp() {
 
     # let's rock & roll, baby
     echo
-    success "Let's get it! ${CYAN}#Express${RESET}"
+    echo "Let's get it! ${CYAN}#Express${RESET}"
     echo
 
     return 0

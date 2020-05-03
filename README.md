@@ -11,26 +11,27 @@ If you just need to use the script without installing it:
 
 Wget
 ```shell
-bash -c "$(wget -O - https://raw.githubusercontent.com/newtonkiragu/exp/master/shell/rc.sh)" <project name> <"project description">
+bash -c "$(wget -O - https://raw.githubusercontent.com/malcolmkiano/exp/master/exp.sh)" <project name> <"project description">
 ```
 Curl
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/newtonkiragu/exp/master/shell/rc.sh)" <project name> <"project description">
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/malcolmkiano/exp/master/exp.sh)" <project name> <"project description">
 ```
 Replace `<project name>` and `<project description>` with your project name and description
+
 ## Installation
 > To be run in the terminal
 
 Wget
 ```shell
-bash -c "$(wget -O - https://raw.githubusercontent.com/newtonkiragu/exp/master/install.sh)"
+bash -c "$(wget -O - https://raw.githubusercontent.com/malcolmkiano/exp/master/install.sh)"
 ```
 Curl
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/newtonkiragu/exp/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/malcolmkiano/exp/master/install.sh)"
 ```
 
-You're done, open a new terminal and run `exp`!
+You're done, go ahead and run `exp`!
 
 ## Usage
 To use this, `cd` into your projects folder (or wherever really), and run the following command:
@@ -60,7 +61,7 @@ exp -h
 You can configure this to clone your a different repository and set it up for you.<br>
 It is highly likely it won't entirely be compatible, so please make sure you know what you're doing.
 
-All you need to do is edit the variables below _(located in your `.bashrc` or `.zshrc` file)_
+To change the source repos, edit the variables below _(located in `~/.exp/exp.sh`)_
 
 ```bash
 # replace value with the url to your express/express-knex boilerplate

@@ -2,35 +2,27 @@
 
 if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
   # assume zsh
-  # set paths for zsh files
-  profile=~/.zprofile
   rc=~/.zshrc
-  rcname="zshrc"
   sh="zsh"
 
 elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
   # assume bash
-  # set paths for bash files
-  profile=~/.bash_profile
   rc=~/.bashrc
-  rcname="bashrc"
   sh="bash"
 
 fi
 
 setup_color() {
-	# Only use colors if connected to a terminal
+	# only use colors if connected to a terminal
 	if [ -t 1 ]; then
 		RED=$(printf '\033[31m')
 		GREEN=$(printf '\033[32m')
 		CYAN=$(printf '\033[36m')
-		BOLD=$(printf '\033[1m')
 		RESET=$(printf '\033[m')
 	else
 		RED=""
 		GREEN=""
 		CYAN=""
-		BOLD=""
 		RESET=""
 	fi
 }
@@ -47,23 +39,31 @@ cyan() {
   echo ${CYAN}"$@"${RESET} >&2
 }
 
+# tell the user what's going on
 setup_color
-
 cyan "Setting up exp"
-sleep 2s
-cd ~/ || exit
-# clone the project
-git clone --depth=1 "https://github.com/malcolmkiano/exp.git" ".exp"
-sleep 2s
-# install it in the necessary shell
-echo "installing exp"
-chmod +x ~/.exp/shell/rc.sh
-cat >> $rc << EOT
-alias exp='~/.exp/shell/rc.sh'
-EOT
 
-# bottom line
-success "Installation was successful. Open a new terminal to use."
+# clone the project
+cd ~/ || exit
+rm -rf ".exp"
+git clone --depth=1 "https://github.com/malcolmkiano/exp.git" ".exp"
+cd - # go back to where we were before
 echo
-success "To use: exp [-k] ${BOLD}project name${RESET} ${CYAN}'project description'${RESET}"
-error "To view help, run: ${CYAN}exp -h${RESET}"
+sleep 1s
+
+# install it in the corresponding shell
+cyan "Installing exp"
+chmod +x ~/.exp/exp.sh
+cat >> $rc << EOT
+alias exp='~/.exp/exp.sh'
+EOT
+echo
+sleep 1s
+
+# we're golden
+success "Installation was successful. Your terminal settings have been reloaded."
+echo
+echo "To use: ${CYAN}exp ${GREEN}project-name${RESET} ${CYAN}'project description'${RESET} [-options]"
+echo "To view help, run: ${CYAN}exp -h${RESET}"
+
+exec "$sh"
