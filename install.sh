@@ -43,13 +43,18 @@ cyan() {
 setup_color
 cyan "Setting up exp"
 
-# clone the project
+# clone the project (uncomment the following for production)
 cd ~/ || exit
 rm -rf ".exp"
 git clone --depth=1 "https://github.com/malcolmkiano/exp.git" ".exp"
 cd - # go back to where we were before
 echo
-sleep 1s
+
+# local testing code (uncomment the following for local development)
+# rm -rf ~/.exp
+# mkdir ~/.exp
+# cp -ar ./ ~/.exp
+# sleep 1s
 
 # install it in the corresponding shell
 cyan "Installing exp"

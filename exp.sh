@@ -129,9 +129,9 @@ exp() {
     mv example.env .env
 
     # replace the title and description in package.json
-    sed -i "s/$name/$projectname/g" package-lock.json
-    sed -i "s/$name/$projectname/g" package.json
-    sed -i "s/$desc/$description/g" package.json
+    sed -i -e "s/$name/$projectname/g" package-lock.json
+    sed -i -e "s/$name/$projectname/g" package.json
+    sed -i -e "s/$desc/$description/g" package.json
 
     # clean up README.md
     echo "# $projectname" > README.md
