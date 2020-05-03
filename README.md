@@ -9,11 +9,11 @@ For usage with Knex: you also need to have [PostgreSQL](https://www.postgresql.o
 If you just need to use the script without installing it:
 
 ```shell
-bash -c "$(wget -O - https://github.com/malcolmkiano/exp/blob/master/shell/rc.sh)"
+bash -c "$(wget -O - https://github.com/newtonkiragu/exp/blob/master/shell/rc.sh)"
 ```
 Curl
 ```shell
-sh -c "$(curl -fsSL https://github.com/malcolmkiano/exp/blob/master/shell/rc.sh)"
+sh -c "$(curl -fsSL https://github.com/newtonkiragu/exp/blob/master/shell/rc.sh)"
 ```
 
 ## Installation
@@ -21,11 +21,11 @@ sh -c "$(curl -fsSL https://github.com/malcolmkiano/exp/blob/master/shell/rc.sh)
 
 Wget
 ```shell
-bash -c "$(wget -O - https://raw.githubusercontent.com/malcolmkiano/exp/master/install.sh)"
+bash -c "$(wget -O - https://raw.githubusercontent.com/newtonkiragu/exp/master/install.sh)"
 ```
 Curl
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/malcolmkiano/exp/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/newtonkiragu/exp/master/install.sh)"
 ```
 
 You're done, open a new terminal and run `exp`!
