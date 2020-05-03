@@ -9,13 +9,13 @@ For usage with Knex: you also need to have [PostgreSQL](https://www.postgresql.o
 If you just need to use the script without installing it:
 
 ```shell
-bash -c "$(wget -O - https://raw.githubusercontent.com/newtonkiragu/exp/master/shell/rc.sh)"
+bash -c "$(wget -O - https://raw.githubusercontent.com/newtonkiragu/exp/master/shell/rc.sh)" <project name> <"project description">
 ```
 Curl
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/newtonkiragu/exp/master/shell/rc.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/newtonkiragu/exp/master/shell/rc.sh)" <project name> <"project description">
 ```
-
+Replace `<project name>` and `<project description>` with your project name and description
 ## Installation
 > To be run in the terminal
 
